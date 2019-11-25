@@ -26,6 +26,9 @@
 ;; Typescript
 (setq tide-format-options '(:indentSize 2))
 
+;; Org
+(setq org-agenda-files (list '("~/Dropbox/org")))
+
 ;; Org Journal
 (customize-set-variable 'org-journal-dir "~/Dropbox/org/journal/")
 (customize-set-variable 'org-journal-date-format "%A, %d, %B %Y")

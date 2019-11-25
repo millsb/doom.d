@@ -5,8 +5,4 @@
 ;; (package! some-package)
 ;; (package! another-package :recipe (:fetcher github :repo "username/repo"))
 ;; (package! builtin-package :disable t)
-(package! clojure-mode)
-(package! cider)
-(package! helm-cider)
-(package! flycheck-joker :disable t)
 (package! org-journal)
