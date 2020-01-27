@@ -186,7 +186,7 @@
  ;; If there is more than one, they won't work right.
  '(org-agenda-files
    (quote
-    ("~/Dropbox/org/projects.org" "/Users/bryanmills/org/cost-explorer.org" "/Users/bryanmills/org/notes.org"))))
+    ("~/Dropbox/org/projects.org" "~/Dropbox/org/endo" "/Users/bryanmills/org/cost-explorer.org" "/Users/bryanmills/org/notes.org" "/mnt/c/Users/mills/Dropbox/org/endo"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

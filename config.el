@@ -37,3 +37,40 @@
 ;; When =org-journal-file-pattern= has the default value, this would be the regex.
 (setq org-agenda-file-regexp "\\`\\\([^.].*\\.org\\\|[0-9]\\\{8\\\}\\\(\\.gpg\\\)?\\\)\\'")
 (add-to-list 'org-agenda-files org-journal-dir)
+
+;; Deft
+(use-package! zetteldeft :after deft)
+(setq deft-recursive t)
+(setq deft-use-filter-string-for-filename t)
+(setq deft-default-extension "org")
+(setq deft-directory "~/Dropbox/org/endo")
+
+(setq zettel-indicator "§")
+(defun jethro/deft-insert-boilerplate ()
+  (interactive)
+  (when (= (buffer-size (current-buffer)) 0)
+    (let ((title (s-join " " (-map #'capitalize (split-string (file-name-sans-extension (buffer-name)) "_")))))
+      (insert "#+TITLE: ")
+      (insert title)
+      (goto-char (point-max)))))
+
+(defun org-insert-zettel (file-name)
+  "Finds a file, inserts it as a link with the base file name as the link name, and adds the zd-link-indicator I use to the front."
+  (interactive (list (completing-read "File: " (deft-find-all-files-no-prefix))))
+  (org-insert-link nil (concat "file:" (file-name-base file-name) "." (file-name-extension file-name)) (concat zettel-indicator (file-name-base file-name))))
+
+(defun jethro/get-linked-files ()
+  "Show links to this file."
+  (interactive)
+  (let* ((search-term (file-name-nondirectory buffer-file-name)
+          (files deft-all-files)
+          (tnames (mapcar #'file-truename files))))
+    (multi-occur
+      (mapcar (lambda (x)
+                (with-current-buffer
+                    (or (get-file-buffer x) (find-file-noselect x))
+                  (widen)
+                  (current-buffer)))
+              files)
+      search-term
+      3)))
