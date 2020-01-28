@@ -7,3 +7,4 @@
 ;; (package! builtin-package :disable t)
 (package! org-journal)
 (package! zetteldeft)
+(package! pyenv-mode)
