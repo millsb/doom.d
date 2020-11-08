@@ -8,3 +8,4 @@
 (package! org-journal)
 (package! zetteldeft)
 (package! pyenv-mode)
+(package! org-super-agenda)

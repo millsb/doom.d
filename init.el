@@ -129,7 +129,8 @@
         +dragndrop       ; file drag & drop support
         +ipython         ; ipython support for babel
         +pandoc          ; pandoc integration into org's exporter
-        +present)        ; using Emacs for presentations
+        +present        ; using Emacs for presentations
+        +roam)                ;
        ;;perl              ; write code no one else can comprehend
        ;;php               ; perl's insecure younger brother
        ;;plantuml          ; diagrams for confusing people more
@@ -162,9 +163,9 @@
        ;;irc              ; how neckbeards socialize
        ;;(rss +org)        ; emacs as an RSS reader
        ;;twitter           ; twitter client https://twitter.com/vnought
-       ;;(write            ; emacs as a word processor (latex + org + markdown)
-       ;; +wordnut         ; wordnet (wn) search
-       ;; +langtool)       ; a proofreader (grammar/style check) for Emacs
+       (write            ; emacs as a word processor (latex + org + markdown)
+        +wordnut         ; wordnet (wn) search
+        +langtool)       ; a proofreader (grammar/style check) for Emacs
 
        :collab
        ;;floobits          ; peer programming for a price
@@ -179,14 +180,16 @@
        ;; provides a Spacemacs-inspired keybinding scheme and a smartparens
        ;; config. Use it as a reference for your own modules.
        (default +bindings +smartparens))
+
+(setq evil-respect-visual-line-mode t)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(org-agenda-files
-   (quote
-    ("~/Dropbox/org/projects.org" "~/Dropbox/org/endo" "/Users/bryanmills/org/cost-explorer.org" "/Users/bryanmills/org/notes.org" "/mnt/c/Users/mills/Dropbox/org/endo"))))
+ )
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
